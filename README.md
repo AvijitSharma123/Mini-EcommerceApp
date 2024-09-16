@@ -1,6 +1,15 @@
+PRODUCT PAGE
+![Screenshot 2024-09-16 172352](https://github.com/user-attachments/assets/e33f14d7-0c6d-4fda-bc93-286ea0e5cf78)
+
+CART PAGE
+![Screenshot 2024-09-16 172454](https://github.com/user-attachments/assets/00881538-63da-4d89-9fea-2e4c290db6f0)
 <!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+
+![Screenshot 2024-09-16 172454](https://github.com/user-attachments/assets/00881538-63da-4d89-9fea-2e4c290db6f0)
 
 ## Available Scripts
 ![Screenshot 2024-09-16 172352](https://github.com/user-attachments/assets/e33f14d7-0c6d-4fda-bc93-286ea0e5cf78)
