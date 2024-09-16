@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Box, Heading, Text, Button, Select, Stack, Image, Flex, Spacer } from '@chakra-ui/react';
 
 const availableDiscounts = [
@@ -19,36 +19,57 @@ const CartPage = ({ cart, onRemoveItem, onDecrementItem }) => {
   const [convertedTotal, setConvertedTotal] = useState(0);
 
   // Function to calculate the total price of items in the cart
-  const calculateSubtotal = () => {
+  const calculateSubtotal = useCallback(() => {
     return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  };
+  },[cart]);
 
   // Function to apply discounts based on item categories
-  const applyDiscounts = () => {
-    let totalDiscount = 0;
-    cart.forEach((item) => {
-      const discount = availableDiscounts.find(discount => discount.category === item.category);
-      if (discount) {
-        totalDiscount += item.price * item.quantity * discount.discount;
-      }
-    });
-    setDiscountsApplied(totalDiscount);
-    return totalDiscount;
-  };
+//   const applyDiscounts = () => {
+//     let totalDiscount = 0;
+//     cart.forEach((item) => {
+//       const discount = availableDiscounts.find(discount => discount.category === item.category);
+//       if (discount) {
+//         totalDiscount += item.price * item.quantity * discount.discount;
+//       }
+//     });
+//     setDiscountsApplied(totalDiscount);
+//     return totalDiscount;
+//   };
+
+
 
   // Calculate total after discount
-  const calculateTotal = () => {
-    const subtotal = calculateSubtotal();
-    const discount = applyDiscounts();
-    return subtotal - discount;
-  };
+//   const calculateTotal = () => {
+//     const subtotal = calculateSubtotal();
+//     const discount = applyDiscounts();
+//     return subtotal - discount;
+//   };
 
   // Convert the total to the selected currency
   useEffect(() => {
+
+    const applyDiscounts = () => {
+        let totalDiscount = 0;
+        cart.forEach((item) => {
+          const discount = availableDiscounts.find(discount => discount.category === item.category);
+          if (discount) {
+            totalDiscount += item.price * item.quantity * discount.discount;
+          }
+        });
+        setDiscountsApplied(totalDiscount);
+        return totalDiscount;
+      };
+
+    const calculateTotal = () => {
+        const subtotal = calculateSubtotal();
+        const discount = applyDiscounts();
+        return subtotal - discount;
+      };
+
     const total = calculateTotal();
     const converted = total * currencyRates[selectedCurrency];
     setConvertedTotal(converted.toFixed(2)); // Limit to 2 decimal places
-  }, [selectedCurrency,cart,calculateTotal]);
+  }, [selectedCurrency,cart,calculateSubtotal]);
 
   return (
     <Box p="4">
