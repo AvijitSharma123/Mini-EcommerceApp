@@ -48,7 +48,7 @@ const CartPage = ({ cart, onRemoveItem, onDecrementItem }) => {
     const total = calculateTotal();
     const converted = total * currencyRates[selectedCurrency];
     setConvertedTotal(converted.toFixed(2)); // Limit to 2 decimal places
-  }, [selectedCurrency,cart]);
+  }, [selectedCurrency,cart,calculateTotal]);
 
   return (
     <Box p="4">

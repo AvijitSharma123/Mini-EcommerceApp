@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Box, Button, ChakraProvider, CloseButton, useDisclosure } from '@chakra-ui/react';
+import {ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Button, Text, Heading, Stack, Image, Alert } from '@chakra-ui/react';
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Box, Button, Text, Heading, Image } from '@chakra-ui/react';
+import { Grid } from '@chakra-ui/react'
 
 const products = [
 //   { id: 'P001', name: 'Laptop', price: 1000.00, category: 'Electronics' },
